@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  grid-template-rows: auto 1fr;
+}
+
+main {
+  grid-template-columns: auto 1fr;
+}
+
+aside {
+  width: 10vw;
+  max-width: 10vw;
+  grid-template-rows: auto minmax(auto,1fr) auto;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+p, h1, h2, h3, textarea, input[type="file"] {
+  @apply text-emerald-950 dark:text-emerald-50;
+}
+
+textarea {
+  @apply focus:border-0 focus:outline focus:outline-2 focus:outline-emerald-950 rounded
+  dark:focus:outline-emerald-200;
+}
+
+.break-word {
+  word-break: break-word;
+}
+
+.text-bottomup {
+  writing-mode: sideways-lr;
+}
+
+.text-topdown {
+  writing-mode: vertical-rl;
+}
+
+.default-button {
+  @apply border-emerald-950 border-2 rounded text-emerald-50 bg-emerald-700 active:bg-emerald-600 px-2 py-1;
+}
+
+input[type="color"]::-webkit-color-swatch, input[type="color"]::-moz-color-swatch {
+  @apply rounded-sm m-0 border-emerald-950 dark:border-emerald-50;
+}
+
